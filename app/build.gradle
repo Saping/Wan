@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.example.y_xl.wan"
+        minSdkVersion 21
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    /*RxJava与RxAndroid的依赖*/
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    /*Retrofit与RxAndroid配置依赖*/
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    /*使Retrofit的转化器自定义完成数据的转化
+                                * 就是我们可以接口中少写一些bean类
+                                * */
+    compile 'com.squareup.retrofit2:converter-scalars:+'
+    /*gson解析*/
+    compile 'com.google.code.gson:gson:2.8.1'
+
+    //glide
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+    //tablayout
+    compile 'com.android.support:design:23.3.0'
+
+
+    //刷新
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'//没有使用特殊Header，可以不加这行
+
+    compile 'com.android.support:appcompat-v7:26.1.0'//版本随意（必须）
+//    compile 'com.android.support:design:25.3.1'//版本随意（非必须，引用可以解决无法预览问题）
+
+//1.0.4 出现问题可以回退到 1.0.3
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.3'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.3'//没有使用特殊Header，可以不加这行
+//xrecyclerView
+    compile 'com.jcodecraeer:xrecyclerview:1.5.9'
+    compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'//一个开源gif控件
+}
